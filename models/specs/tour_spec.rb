@@ -30,6 +30,7 @@ class TestTour < Minitest::Test
       })
   end
 
+
   def test_can_create_tour_class
     assert_equal(Tour, @tour1.class)
   end

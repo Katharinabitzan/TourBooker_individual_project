@@ -12,5 +12,43 @@ class Member
     @avalanche_trained = options['avalanche_trained']
   end
 
+  def save
+    sql = 'INSERT INTO members (name, age, ability, avalanche_trained) VALUES ($1, $2, $3, $4) RETURNING id'
+    values = [@name, @age, @ability, @avalanche_trained]
+    results = SqlRunner.run(sql, values)
+    @id = results.first['id'].to_i
+  end
+
+  def delete
+    sql = 'DELETE FROM members WHERE id = $1'
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update
+    sql = 'UPDATE members SET (name, age, ability, avalanche_trained) = ($1, $2, $3, $4) WHERE id = $5'
+    values = [@name, @age, @ability, @avalanche_trained, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all
+    sql = 'SELECT * FROM tours'
+    results = SqlRunner.run(sql)
+    return results.map { |member| Member.new(member)  }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM members
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Member.new( results.first )
+  end
+
+  def self.delete_all
+    sql = 'DELETE FROM members'
+    SqlRunner.run(sql)
+  end
+
 
 end
