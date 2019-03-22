@@ -3,9 +3,9 @@ require_relative('../models/member.rb')
 require_relative('../models/booking.rb')
 require('pry-byebug')
 
+Booking.delete_all
 Tour.delete_all
 Member.delete_all
-
 
 tour1 = Tour.new({
   'max_capacity' => 5,
@@ -70,20 +70,24 @@ member2.save
 member3.save
 
 
-# booking1 = Booking.new({
-#   'member_id' => member1.id,
-#   'tour_id' => tour1.id,
-#     })
-#
-# booking2 = Booking.new({
-#   'member_id' => member2.id,
-#   'tour_id' => tour1.id,
-#     })
-#
-# booking3 = Booking.new({
-#   'member_id' => member1.id,
-#   'tour_id' => tour2.id,
-#     })
+booking1 = Booking.new({
+  'member_id' => member1.id,
+  'tour_id' => tour1.id,
+    })
+
+booking2 = Booking.new({
+  'member_id' => member2.id,
+  'tour_id' => tour1.id,
+    })
+
+booking3 = Booking.new({
+  'member_id' => member1.id,
+  'tour_id' => tour2.id,
+    })
+
+booking1.save
+booking2.save
+booking3.save
 
 binding.pry
 nil
