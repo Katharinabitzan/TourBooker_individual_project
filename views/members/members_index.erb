@@ -1,12 +1,18 @@
-<p>members index</p>
 <h1> All Members </h1>
 
 <% for member in @members %>
   <p> Name: <%=member.name%> </p>
-  <a href="/members/<%=member.id%>">Show details</a>
+  
+  <form action="/members/<%= member.id %>" method="GET">
+    <input type="submit" value="Show details">
+  </form>
 
-<form action="/members/<%= member.id %>/delete" method="POST">
-  <input type="submit" value="Delete member">
-</form>
+  <form action="/members/<%= member.id %>/delete" method="POST">
+    <input type="submit" value="Delete member">
+  </form>
+
+  <form action="/members/<%= member.id %>/edit" method="GET">
+    <input type="submit" value="Edit member">
+  </form>
 
 <%end%>

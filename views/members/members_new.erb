@@ -1,32 +1,27 @@
 <h1> Add new members </h1>
 
 <form method="POST" action="/members">
-  <div>
 
-    <div>
-      <label for="name">Full Name:</label>
-      <input type="text" name="name" id="name"/>
-    </div>
-
-    <div>
-      <label for="age">Age:</label>
-      <input type="number" name="age" id="age"/>
-    </div>
-
-    <div>
-      <label for="ability">Ability (Lowest: 1, Highest: 5):</label>
-      <input type="number" name="ability" id="ability" min="1", max="5"/>
-    </div>
-
-    <div>
-      <label for="avalanche_trained">Has this member completed avalanche training?</label>
-      <input type="radio" id="avalanche_trained" name="avalanche_trained" value="false" checked> No <br>
-      <input type="radio" id="avalanche_trained" name="avalanche_trained" value="true" checked> Yes <br>
-    </div>
-
-    <div>
-      <input type="submit" value="Add member"/>
-    </div>
-
-  </div>
+  <p>
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" id="name"/>
+  </p>
+  <p>
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age"/>
+  </p>
+  <p>
+    <label for="ability">Ability (Lowest: 1, Highest: 5):</label>
+    <input type="number" name="ability" id="ability" min="1", max="5"/>
+  </p>
+  <p>
+    <label for="avalanche_trained">Has this member completed avalanche training?</label>
+  </p>
+  <p>
+    <input type="radio" id="avalanche_trained" name="avalanche_trained" value="false" checked> No
+  </p>
+  <p>
+    <input type="radio" id="avalanche_trained" name="avalanche_trained" value="true" checked> Yes
+  </p>
+  <input type="submit" value="Add member"/>
 </form>

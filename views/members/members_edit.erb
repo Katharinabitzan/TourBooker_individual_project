@@ -1,0 +1,28 @@
+<h1> Edit member details for: <%= @member.name %> </h1>
+
+<form method="POST" action="/members/<%= @member.id %>">
+  <p>
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" id="name" value=" <%=@member.name%>"/>
+  </p>
+  <p>
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age" value=" <%=@member.age%>"/>
+  </p>
+  <p>
+    <label for="ability">Ability (Lowest: 1, Highest: 5):</label>
+    <input type="number" name="ability" id="ability" min="1", max="5" value="<%=@member.ability%>"/>
+  </p>
+
+  <p>
+    <label for="avalanche_trained">Has this member completed avalanche training?</label>
+  </p>
+  <p>
+    <input type="radio" id="avalanche_trained" name="avalanche_trained" value="false"> No <br>
+  </p>
+  <p>
+    <input type="radio" id="avalanche_trained" name="avalanche_trained" value="true"> Yes <br>
+  </p>
+  <input type="submit" value="Submit changes"/>
+
+</form>
