@@ -16,6 +16,13 @@ class Tour
     @tour_leader = options['tour_leader']
   end
 
+  def members
+    sql = 'SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.tour_id = $1;'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |member| Member.new(member)  }
+  end
+
   def save
     sql = 'INSERT INTO tours (max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id'
 

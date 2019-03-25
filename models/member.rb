@@ -12,6 +12,13 @@ class Member
     @avalanche_trained = options['avalanche_trained']
   end
 
+  def tours()
+    sql = 'SELECT tours.* FROM tours INNER JOIN bookings ON bookings.tour_id = tours.id WHERE bookings.member_id = $1;'
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |tour| Tour.new(tour) }
+  end
+
   def save
     sql = 'INSERT INTO members (name, age, ability, avalanche_trained) VALUES ($1, $2, $3, $4) RETURNING id'
     values = [@name, @age, @ability, @avalanche_trained]
@@ -32,7 +39,7 @@ class Member
   end
 
   def self.all
-    sql = 'SELECT * FROM tours'
+    sql = 'SELECT * FROM members'
     results = SqlRunner.run(sql)
     return results.map { |member| Member.new(member)  }
   end

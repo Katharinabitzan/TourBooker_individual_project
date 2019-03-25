@@ -1,0 +1,13 @@
+<p>members index</p>
+<h1> All Members </h1>
+
+<% for member in @members %>
+  <p> Name: <%=member.name%> </p>
+  <<a href="/members/<%=member.id%>">Show details</a>
+
+  <p> Age: <%=member.age%> </p>
+  <p> Ability: <%=member.ability%> </p>
+  <p> avalanche_trained: <%=member.avalanche_trained%> </p>
+
+
+<%end%>

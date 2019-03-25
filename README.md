@@ -1,6 +1,13 @@
 
+0.0.4 Create index for members
 
-0.0.0:
+0.0.3 Add functions to find tours by members, members by tours, bookings for both.
+
+0.0.2: Add CRUD (Create, Read: Find-all & Find-by-id, Update, Delete & Delete-all) functions for Tour, Member and Booking classes
+
+0.0.1: Add Booking class, pass test of existance of variables.
+
+0.0.0: Add Tour and Member class, pass test for existance of variables.
 
 # BRIEF
 
