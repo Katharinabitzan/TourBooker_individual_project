@@ -17,3 +17,10 @@
 <form action="/tours/<%= @tour.id %>/delete" method="POST">
   <input type="submit" value="Delete">
 </form>
+
+<p>All members booked on this tour:</p>
+
+<%for member in @members%>
+<p><%=member.name%></p>
+
+<%end%>

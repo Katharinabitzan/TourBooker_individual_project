@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+
+0.1.3 List all members booked on a tour in tour.show
 0.1.2 List all tours a member is registered for (tour id) <br/>
 0.1.1 Finish RESTful routes for tours <br/>
 0.1.0 Finish RESTful routes for members <br/>
