@@ -1,3 +1,4 @@
+0.1.1 Finish RESTful routes for tours
 0.1.0 Finish RESTful routes for members
 0.0.5 Can create, show and view all members
 0.0.4 Create index for members

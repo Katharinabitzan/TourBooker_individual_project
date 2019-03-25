@@ -1,0 +1,14 @@
+<h1> All Tours </h1>
+
+<% for tour in @tours %>
+  <p> Start Date: <%=tour.start_date%> </p>
+
+  <form action="/tours/<%= tour.id %>" method="GET">
+    <input type="submit" value="Show">
+  </form>
+
+  <form action="/tours/<%= tour.id %>/edit" method="GET">
+    <input type="submit" value="Edit">
+  </form>
+
+<%end%>

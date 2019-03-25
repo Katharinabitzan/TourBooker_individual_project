@@ -1,0 +1,39 @@
+<h1> Add new tour </h1>
+
+<form method="POST" action="/tours">
+
+  <p>
+    <label for="start_date">Start Date:</label>
+    <input type="date" name="start_date" id="start_date"/>
+  </p>
+  <p>
+    <label for="description">Description:</label>
+    <input type="textarea" name="description" id="description"/>
+  </p>
+  <p>
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="location"/>
+  </p>
+  <p>
+    <label for="difficulty">Difficulty:</label>
+    <input type="number" name="difficulty" id="difficulty" min="1" max="5"/>
+  </p>
+  <p>
+    <label for="tour_leader">Tour Leader:</label>
+    <input type="text" name="tour_leader" id="tour_leader"/>
+  </p>
+  <p>
+    <label for="max_capacity">Max Capacity:</label>
+    <input type="number" name="max_capacity" id="max_capacity"/>
+  </p>
+  <p>
+    <label for="current_spaces_booked">Spaces already booked:</label>
+    <input type="number" name="current_spaces_booked" id="current_spaces_booked" value="0"/>
+  </p>
+  <p>
+    <label for="photo">Photo:</label>
+    <input type="text" name="photo" id="photo"/>
+  </p>
+
+  <input type="submit" value="Add tour"/>
+</form>

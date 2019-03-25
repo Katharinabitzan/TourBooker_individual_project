@@ -1,0 +1,39 @@
+<h1> Edit tour </h1>
+
+<form method="POST" action="/tours/<%= @tour.id %>">
+
+  <p>
+    <label for="start_date">Start Date:</label>
+    <input type="date" name="start_date" id="start_date" value="<%=@tour.start_date%>"/>
+  </p>
+  <p>
+    <label for="description">Description:</label>
+    <input type="textarea" name="description" id="description" value="<%=@tour.description%>"/>
+  </p>
+  <p>
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="location" value="<%=@tour.location%>"/>
+  </p>
+  <p>
+    <label for="difficulty">Difficulty:</label>
+    <input type="number" name="difficulty" id="difficulty" min="1" max="5" value="<%=@tour.difficulty%>"/>
+  </p>
+  <p>
+    <label for="tour_leader">Tour Leader:</label>
+    <input type="text" name="tour_leader" id="tour_leader" value="<%=@tour.tour_leader%>"/>
+  </p>
+  <p>
+    <label for="max_capacity">Max Capacity:</label>
+    <input type="number" name="max_capacity" id="max_capacity" value="<%=@tour.max_capacity%>"/>
+  </p>
+  <p>
+    <label for="current_spaces_booked">Spaces already booked:</label>
+    <input type="number" name="current_spaces_booked" id="current_spaces_booked" value="<%=@tour.current_spaces_booked%>"/>
+  </p>
+  <p>
+    <label for="photo">Photo:</label>
+    <input type="text" name="photo" id="photo" value="<%=@tour.photo%>"/>
+  </p>
+
+  <input type="submit" value="Submit changes to tour"/>
+</form>
