@@ -2,6 +2,8 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 # require( 'pry-byebug' )
 require_relative( '../models/member.rb' )
+require_relative( '../models/tour.rb' )
+require_relative( '../models/booking.rb' )
 also_reload( '../models/*' )
 
 #INDEX
@@ -25,6 +27,7 @@ end
 #SHOW
 get '/members/:id' do
    @member = Member.find(params['id'].to_i)
+   @tours = @member.tours
    erb(:"members/members_show")
 end
 
