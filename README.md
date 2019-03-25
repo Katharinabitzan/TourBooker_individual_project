@@ -1,3 +1,4 @@
+0.1.0 Can create, show and view all members
 
 0.0.4 Create index for members
 

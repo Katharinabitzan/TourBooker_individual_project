@@ -10,10 +10,22 @@ get '/members' do
   erb(:"members/members_index")
 end
 
+#NEW
+get '/members/new' do
+  @members = Member.all
+  erb(:"members/members_new")
+end
+
+#CREATE
+post '/members' do
+  Member.new(params).save
+  redirect to '/members'
+end
+
 #SHOW
 get '/members/:id' do
-   @member = Student.find(params['id'])
-   erb(:show)
+   @member = Member.find(params['id'].to_i)
+   erb(:"members/members_show")
 end
 
 # binding.pry
