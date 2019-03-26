@@ -16,6 +16,13 @@ class Tour
     @tour_leader = options['tour_leader']
   end
 
+  def add_member_to_this_tour(member)
+    return "This tour is fully booked. The max capacity of #{@max_capacity} has been reached" unless @current_spaces_booked < @max_capacity
+    return "This member does not have the necessary ability to partake." unless @difficulty <= member.ability
+    @current_spaces_booked += 1
+    return "Booking successful"
+  end
+
   def members
     sql = 'SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.tour_id = $1;'
     values = [@id]

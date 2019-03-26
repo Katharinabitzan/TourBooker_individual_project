@@ -1,0 +1,21 @@
+<p>All bookings</p>
+
+<table style="width:100%">
+  <tr>
+    <th>Booking ID</th>
+    <th>Tour ID</th>
+    <th>Member ID</th>
+  </tr>
+  <%for booking in @bookings%>
+    <tr>
+      <td><%=booking.id%></td>
+      <td><%=booking.tour_id%></td>
+      <td><%=booking.member_id%></td>
+    </tr>
+  <%end%>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
