@@ -8,6 +8,7 @@ Tour.delete_all
 Member.delete_all
 
 tour1 = Tour.new({
+  'name' => 'Exciting tour',
   'max_capacity' => 5,
   'current_spaces_booked' => 0,
   'difficulty' => 1,
@@ -19,6 +20,7 @@ tour1 = Tour.new({
   })
 
 tour2 = Tour.new({
+  'name' => 'Best tour',
   'max_capacity' => 5,
   'current_spaces_booked' => 0,
   'difficulty' => 3,
@@ -30,6 +32,7 @@ tour2 = Tour.new({
   })
 
 tour3 = Tour.new({
+  'name' => 'Fun tour',
   'max_capacity' => 3,
   'current_spaces_booked' => 0,
   'difficulty' => 4,

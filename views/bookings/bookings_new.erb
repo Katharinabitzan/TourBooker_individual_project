@@ -1,17 +1,6 @@
-<h1> Make a new booking </h1>
+<h1> Create a new booking: </h1>
 
 <form method="POST" action="/bookings">
-
-  <p>
-    <label>
-      Select a member:
-      <select name="member_id">
-        <% for member in @members %>
-        <option value="<%= member.id %>"><%= member.name%></option>
-        <%end%>
-      </select>
-    </label>
-  </p>
 
   <p>
     <label>
@@ -24,6 +13,19 @@
     </label>
   </p>
 
-    <input type='submit' value="Add member to tour">
+  <p>
+    <label>
+      Select a member:
+      <select name="member_id">
+        <% for member in @members %>
+        <option value="<%= member.id %>"><%= member.name%></option>
+        <%end%>
+      </select>
+    </label>
+  </p>
+
+
+
+    <input type='submit' value="Make new booking">
   </form>
 </form>

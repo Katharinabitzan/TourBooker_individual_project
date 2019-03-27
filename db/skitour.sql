@@ -4,9 +4,10 @@ DROP TABLE IF EXISTS tours;
 
 CREATE TABLE tours(
   id SERIAL4 PRIMARY KEY,
-  max_capacity INT,
+  name VARCHAR(255) NOT NULL,
+  max_capacity INT NOT NULL,
   current_spaces_booked INT,
-  difficulty INT,
+  difficulty INT NOT NULL,
   start_date DATE,
   location VARCHAR(255),
   description TEXT,
@@ -16,9 +17,9 @@ CREATE TABLE tours(
 
 CREATE TABLE members(
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255),
-  age INT,
-  ability INT,
+  name VARCHAR(255) NOT NULL UNIQUE,
+  age INT NOT NULL,
+  ability INT NOT NULL,
   avalanche_trained BOOLEAN
 );
 

@@ -2,10 +2,11 @@ require_relative('../db/sql_runner.rb')
 
 class Tour
   attr_reader :id
-  attr_accessor :max_capacity, :current_spaces_booked, :difficulty, :start_date, :location, :description, :photo, :tour_leader
+  attr_accessor :name, :max_capacity, :current_spaces_booked, :difficulty, :start_date, :location, :description, :photo, :tour_leader
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
+    @name = options['name']
     @max_capacity = options['max_capacity'].to_i
     @current_spaces_booked = options['current_spaces_booked'].to_i
     @difficulty = options['difficulty'].to_i
@@ -16,11 +17,9 @@ class Tour
     @tour_leader = options['tour_leader']
   end
 
-  def add_member_to_this_tour(member)
-    return "This tour is fully booked. The max capacity of #{@max_capacity} has been reached" unless @current_spaces_booked < @max_capacity
-    return "This member does not have the necessary ability to partake." unless @difficulty <= member.ability
+  def increase_spaces_booked
     @current_spaces_booked += 1
-    return "Booking successful"
+    return @current_spaces_booked.to_i
   end
 
   def members
@@ -31,9 +30,9 @@ class Tour
   end
 
   def save
-    sql = 'INSERT INTO tours (max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id'
+    sql = 'INSERT INTO tours (name, max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id'
 
-    values = [@max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader]
+    values = [@name, @max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader]
 
     results = SqlRunner.run(sql, values)
     @id = results.first['id'].to_i
@@ -46,8 +45,8 @@ class Tour
   end
 
   def update
-    sql = 'UPDATE tours SET (max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9'
-    values = [@max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader, @id]
+    sql = 'UPDATE tours SET (name, max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10'
+    values = [@name, @max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,6 +67,32 @@ class Tour
   def self.delete_all
     sql = 'DELETE FROM tours'
     SqlRunner.run(sql)
+  end
+
+## Extension methods ##
+  def self.order_by_date
+    sql = "SELECT * FROM tours
+    ORDER BY start_date ASC;"
+    results = SqlRunner.run( sql )
+    return results.map { |tour| Tour.new(tour) }
+  end
+
+  def members_with_high_enough_ability
+    sql = 'SELECT members.* FROM members, tours
+          WHERE members.ability >= tours.difficulty
+          AND tours.id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |member| Member.new(member)  }
+  end
+
+###Not working (unexpected tIDENTIFIER)
+  def upcoming_tours_this_month
+    sql = 'SELECT * FROM tours
+          WHERE tours.start_date >= date_trunc('month', CURRENT_DATE)
+          AND tours.start_date < date_trunc('month', CURRENT_DATE) + interval "1 month";'
+    results = SqlRunner.run(sql)
+    return results.map { |tour| Tour.new(tour)  }
   end
 
 end

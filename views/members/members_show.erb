@@ -2,7 +2,7 @@
 
 <p> Age: <%=@member.age%> </p>
 <p> Ability: <%=@member.ability%> </p>
-<p> avalanche_trained: <%=@member.avalanche_trained%> </p>
+<p> Avalanche training completed? <%=@member.avalanche_trained%> </p>
 
 <form action="/members/<%= @member.id %>/edit" method="GET">
   <input type="submit" value="Edit">
@@ -12,9 +12,22 @@
   <input type="submit" value="Delete">
 </form>
 
-<p>All tours by <%= @member.name %>:</p>
-
-<%for tour in @tours%>
-<p><%=tour.id%></p>
-
+<% if @member.tours.count != 0 %>
+  <p><%= @member.name %> is booked onto the following tours:</p>
+  <table>
+    <tr>
+      <th>Start Date</th>
+      <th>Tour Name</th>
+      <th>Difficulty</th>
+      <th>Actions</th>
+    </tr>
+  <%for tour in @tours%>
+    <tr>
+      <td><%=tour.start_date%></td>
+      <td><%=tour.name%></td>
+      <td><%=tour.difficulty%></td>
+      <td>Edit</td>
+    </tr>
+  <%end%>
+  </table>
 <%end%>

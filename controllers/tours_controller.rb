@@ -9,6 +9,7 @@ also_reload( '../models/*' )
 #INDEX
 get '/tours' do
   @tours = Tour.all()
+  @ordered_tours = Tour.order_by_date
   erb(:"tours/tours_index")
 end
 

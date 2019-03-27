@@ -33,6 +33,13 @@ class Booking
     @id = results.first['id'].to_i
   end
 
+  def new_booking_conditional(member, tour)
+    return "This tour is fully booked. The max capacity of #{tour.max_capacity} has been reached" unless tour.current_spaces_booked < tour.max_capacity
+    return "This member does not have the necessary ability to partake." unless tour.difficulty <= member.ability
+    tour.increase_spaces_booked
+    return "Booking successful"
+  end
+
   def delete
     sql = 'DELETE FROM bookings WHERE id = $1'
     values = [@id]

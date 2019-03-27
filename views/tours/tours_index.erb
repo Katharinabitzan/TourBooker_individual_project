@@ -1,7 +1,9 @@
 <h1> All Tours </h1>
 
-<% for tour in @tours %>
+<% for tour in @ordered_tours %>
+  <p> Name: <%=tour.name%> </p>
   <p> Start Date: <%=tour.start_date%> </p>
+  <img src="../public/images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo">
 
   <form action="/tours/<%= tour.id %>" method="GET">
     <input type="submit" value="Show">

@@ -57,5 +57,4 @@ class Member
     SqlRunner.run(sql)
   end
 
-
 end
