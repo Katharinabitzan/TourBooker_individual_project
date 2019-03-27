@@ -17,25 +17,6 @@ class Tour
     @tour_leader = options['tour_leader']
   end
 
-  def spaces_remaining
-    return @max_capacity - @current_spaces_booked
-  end
-
-  def increase_spaces_booked
-    @current_spaces_booked += 1
-    return @current_spaces_booked.to_i
-  end
-
-  def members
-    sql = 'SELECT members.*
-          FROM members INNER JOIN bookings
-          ON bookings.member_id = members.id
-          WHERE bookings.tour_id = $1;'
-    values = [@id]
-    result = SqlRunner.run(sql, values)
-    return result.map { |member| Member.new(member)  }
-  end
-
   def save
     sql = 'INSERT INTO tours (name, max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader)
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id'
@@ -78,6 +59,25 @@ class Tour
   end
 
 ## Extension methods ##
+  def spaces_remaining
+    return @max_capacity - @current_spaces_booked
+  end
+
+  def increase_spaces_booked
+    @current_spaces_booked += 1
+    return @current_spaces_booked.to_i
+  end
+
+  def members
+    sql = 'SELECT members.*
+          FROM members INNER JOIN bookings
+          ON bookings.member_id = members.id
+          WHERE bookings.tour_id = $1;'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |member| Member.new(member)  }
+  end
+
   def self.order_by_date
     sql = "SELECT * FROM tours
     ORDER BY start_date ASC;"
@@ -95,13 +95,11 @@ class Tour
     return result.map { |member| Member.new(member)  }
   end
 
-###Not working (unexpected tIDENTIFIER)
-  # def upcoming_tours_this_month
-  #   sql = 'SELECT * FROM tours
-  #         WHERE tours.start_date >= date_trunc('month', CURRENT_DATE)
-  #         AND tours.start_date < date_trunc('month', CURRENT_DATE) + interval "1 month";'
-  #   results = SqlRunner.run(sql)
-  #   return results.map { |tour| Tour.new(tour)  }
-  # end
+##Not working (unexpected tIDENTIFIER)
+  def upcoming_tours_this_month
+    sql = 'SELECT * FROM tours WHERE tours.start_date <= CURRENT_DATE + interval '1 month''
+    results = SqlRunner.run(sql)
+    return results.map { |tour| Tour.new(tour)  }
+  end
 
 end

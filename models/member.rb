@@ -69,4 +69,30 @@ class Member
     return @ability >= tour.difficulty
   end
 
+  def self.count_all_members()
+    all_members = self.all
+    return all_members.count
+  end
+
+#all members who have booked tours
+  def self.count_all_active_members()
+    sql = 'SELECT * FROM members
+          INNER JOIN bookings
+          ON members.id = bookings.member_id'
+    results = SqlRunner.run(sql)
+    results_array = results.map { |member| Member.new(member)  }
+    return results_array.count
+  end
+
+#average member ability
+  def self.average_ability()
+    sql = ''
+  end
+
+
+#average member age
+  def self.average_age()
+    sql = ''
+  end
+
 end

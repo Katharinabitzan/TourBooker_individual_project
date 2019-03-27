@@ -2,13 +2,15 @@
 
 <p> <%= @tour.name %> </p>
 
+
+<!-- NOT WORKING, doesnt know DITTY , and add only names that arent booked already-->
 <form method="POST" action="/tours/<%= @tour.id %>/booking">
   <p>
     <label>
       Select a member to add to the tour:
       <select name="name">
         <% for member in @potential_members %>
-        <option value="<%= member.name %>"><%= member.name%></option>
+          <option value="<%= member.name %>"><%= member.name%></option>
         <%end%>
       </select>
     </label>

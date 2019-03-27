@@ -82,6 +82,7 @@ class TestMember < Minitest::Test
     assert_equal(false, result)
   end
 
+
 ##These fail with foreign key violations
 
   # def test_book_tour__ability_ok

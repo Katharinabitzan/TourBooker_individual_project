@@ -47,8 +47,6 @@ class TestBooking < Minitest::Test
       'member_id' => @member2.id,
       'tour_id' => @tour1.id,
         })
-
-
   end
 
   def test_can_create_booking_class()
