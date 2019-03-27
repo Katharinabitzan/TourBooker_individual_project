@@ -67,4 +67,15 @@ class TestTour < Minitest::Test
     assert_equal('Markus', @tour1.tour_leader)
   end
 
+  def test_spaces_remaining()
+    result = @tour1.spaces_remaining
+    assert_equal(5, result)
+  end
+
+  def test_increase_spaces_booked()
+    @tour1.increase_spaces_booked
+    @tour1.increase_spaces_booked
+    assert_equal(3, @tour1.spaces_remaining)
+  end
+
 end

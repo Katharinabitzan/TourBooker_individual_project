@@ -57,4 +57,16 @@ class Member
     SqlRunner.run(sql)
   end
 
+  def book_tour(tour)
+    return unless tour.spaces_remaining > 0
+    return unless ability_high_enough?(tour)
+    Booking.new('member_id' => @id, 'tour_id' => tour.id).save()
+    tour.increase_spaces_booked()
+    tour.update()
+  end
+
+  def ability_high_enough?(tour)
+    return @ability >= tour.difficulty
+  end
+
 end

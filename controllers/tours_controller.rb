@@ -52,5 +52,18 @@ post '/tours/:id/delete' do
   redirect to '/tours'
 end
 
+#EDIT ADD MEMBER TO TOUR - FROM TOUR PAGE = BOOKING NEW
+get '/tours/:id/booking' do
+  @tour = Tour.find(params['id'])
+  @potential_members = @tour.members_with_high_enough_ability
+  erb(:"/tours/tours_add_member")
+end
+
+#CREATE ADD MEMBER TO TOUR
+post '/tours' do
+  Booking.new(params).save
+  redirect to '/tours'
+end
+
 # binding.pry
 # nil

@@ -1,0 +1,17 @@
+<h1> Add member to tour </h1>
+
+<p> <%= @tour.name %> </p>
+
+<form method="POST" action="/tours/<%= @tour.id %>/booking">
+  <p>
+    <label>
+      Select a member to add to the tour:
+      <select name="name">
+        <% for member in @potential_members %>
+        <option value="<%= member.name %>"><%= member.name%></option>
+        <%end%>
+      </select>
+    </label>
+  </p>
+    <input type='submit' value="Add member to tour">
+</form>
