@@ -37,7 +37,7 @@ class Booking
         results = SqlRunner.run(sql, values)
         @id = results.first['id'].to_i
       else
-        return "Not possible"
+        return nil
       end
   end
 

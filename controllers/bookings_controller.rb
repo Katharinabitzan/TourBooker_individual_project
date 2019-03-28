@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-# require( 'pry-byebug' )
+require( 'pry-byebug' )
 require_relative( '../models/member.rb' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/booking.rb' )
@@ -22,21 +22,14 @@ end
 
 #CREATE
 post '/bookings' do
-  new_booking = Booking.new(params)
-  new_booking.save
+  result = Booking.new(params).save
+  binding.pry
+  if result =! nil
+    @reaction = "Booking successful"
+  else
+    @reaction = "Booking not possible"
+  end
   erb(:"/bookings/bookings_reaction")
-  # member_id_for_booking = new_booking.member_id.to_i
-  # member = Member.find(member_id_for_booking)
-  # tour_id_for_booking = new_booking.tour_id.to_i
-  # tour = Tour.find(tour_id_for_booking)
-  # @reaction = new_booking.new_booking_conditional(member, tour)
-  #
-  # if @reaction == "Booking successful"
-  #   new_booking.save
-  #   redirect to '/bookings/bookings_reaction'
-  # else
-  #   return @reaction
-  # end
 end
 
 #SHOW
