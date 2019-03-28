@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require( 'pry-byebug' )
 require_relative('../member.rb')
 require_relative('../booking.rb')
 require_relative('../tour.rb')
@@ -76,6 +77,17 @@ class TestTour < Minitest::Test
     @tour1.increase_spaces_booked
     @tour1.increase_spaces_booked
     assert_equal(3, @tour1.spaces_remaining)
+  end
+
+  def test_upcoming_tours_this_month()
+    all_tours = Tour.all
+    today_date = Date.today
+    date_in_30 = Date.today + 30
+    start_date_past = Date.parse(@tour1.start_date)
+    start_date_future = Date.parse(@tour2.start_date)
+
+    binding.pry
+    Tour.upcoming_tours_this_month
   end
 
 end

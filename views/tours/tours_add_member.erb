@@ -3,17 +3,19 @@
 <p> <%= @tour.name %> </p>
 
 
-<!-- NOT WORKING, doesnt know DITTY , and add only names that arent booked already-->
+<!--Shows only names that have higih enough ability-->
 <form method="POST" action="/tours/<%= @tour.id %>/booking">
   <p>
     <label>
       Select a member to add to the tour:
-      <select name="name">
+      <select name="member_id">
         <% for member in @potential_members %>
-          <option value="<%= member.name %>"><%= member.name%></option>
+          <option value="<%= member.id %>"><%= member.name%></option>
         <%end%>
       </select>
     </label>
   </p>
+  <input type="hidden" name="tour_id" value="<%= @tour.id %>">
+
     <input type='submit' value="Add member to tour">
 </form>

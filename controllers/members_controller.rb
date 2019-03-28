@@ -12,7 +12,6 @@ get '/members' do
   @members_number = Member.count_all_members
   @active_members = Member.count_all_active_members
   # @average_ability = Member.average_ability
-  # @average_age = Member.average_age
   erb(:"members/members_index")
 end
 

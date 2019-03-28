@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner.rb')
+require( 'pry-byebug' )
+require( 'date')
 
 class Tour
   attr_reader :id
@@ -85,6 +87,7 @@ class Tour
     return results.map { |tour| Tour.new(tour) }
   end
 
+  
   def members_with_high_enough_ability
     sql = 'SELECT members.*
           FROM members, tours
@@ -95,11 +98,18 @@ class Tour
     return result.map { |member| Member.new(member)  }
   end
 
-##Not working (unexpected tIDENTIFIER)
-  def upcoming_tours_this_month
-    sql = 'SELECT * FROM tours WHERE tours.start_date <= CURRENT_DATE + interval '1 month''
-    results = SqlRunner.run(sql)
-    return results.map { |tour| Tour.new(tour)  }
+ #array of tours starting in next 30 days from today
+  def self.upcoming_tours_next_30_days
+    all_tours = self.all
+    today_date = Date.today
+    date_in_30 = Date.today + 30
+    tours_next_30_days = []
+    for tour in all_tours
+      if Date.parse(tour.start_date) >= today_date &&  Date.parse(tour.start_date) <= date_in_30
+        tours_next_30_days << tour
+      end
+    end
+    return tours_next_30_days
   end
 
 end

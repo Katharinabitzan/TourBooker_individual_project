@@ -5,6 +5,6 @@ require_relative('controllers/tours_controller')
 require_relative('controllers/bookings_controller')
 
 get '/' do
-  @upcoming_tours_this_month = Tour.upcoming_tours_this_month
+  @upcoming_tours_next_30_days = Tour.upcoming_tours_next_30_days
   erb( :index )
 end

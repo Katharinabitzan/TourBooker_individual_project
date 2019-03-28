@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require( 'date' )
 
 class Booking
   attr_reader :id
@@ -27,15 +28,17 @@ class Booking
   end
 
   def save
-    sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
-    values = [@member_id, @tour_id]
-    results = SqlRunner.run(sql, values)
-    @id = results.first['id'].to_i
+    result = is_booking_possible?()
+      if result == true
+      sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
+      values = [@member_id, @tour_id]
+      results = SqlRunner.run(sql, values)
+      @id = results.first['id'].to_i
   end
 
-  def new_booking_conditional(member, tour)
-    return "This tour is fully booked. The max capacity of #{tour.max_capacity} has been reached" unless tour.current_spaces_booked < tour.max_capacity
-    return "This member does not have the necessary ability to partake." unless tour.difficulty <= member.ability
+  def is_booking_possible?(member, tour)
+    return false unless tour.current_spaces_booked < tour.max_capacity
+    return false unless tour.difficulty <= member.ability
     tour.increase_spaces_booked
     return "Booking successful"
   end
@@ -69,6 +72,13 @@ class Booking
   def self.delete_all
     sql = 'DELETE FROM bookings'
     SqlRunner.run(sql)
+  end
+
+  def current_spaces_booked
+    sql = 'SELECT COUNT(*) FROM bookings WHERE tour_id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result
   end
 
 end

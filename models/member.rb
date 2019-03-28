@@ -90,9 +90,4 @@ class Member
   end
 
 
-#average member age
-  def self.average_age()
-    sql = ''
-  end
-
 end

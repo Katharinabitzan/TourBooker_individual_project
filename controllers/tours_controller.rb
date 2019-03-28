@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-# require( 'pry-byebug' )
+require( 'pry-byebug' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/member.rb' )
 require_relative( '../models/booking.rb' )
@@ -60,10 +60,13 @@ get '/tours/:id/booking' do
 end
 
 #CREATE ADD MEMBER TO TOUR
-post '/tours' do
+post '/tours/:id/booking' do
+  # binding.pry
+  # params["tour_id"] =
+  # params.delete("id")
   Booking.new(params).save
   redirect to '/tours'
 end
 
-# binding.pry
-# nil
+
+nil

@@ -1,16 +1,34 @@
 <h1> All Tours </h1>
 
-<% for tour in @ordered_tours %>
-  <p> Name: <%=tour.name%> </p>
-  <p> Start Date: <%=tour.start_date%> </p>
-  <img src="public/images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo">
+<table>
+  <tr>
+    <th>Tour Name</th>
+    <th>Start Date</th>
+    <th>Photo</th>
+    <th>Actions</th>
+  </tr>
+  <%for tour in @ordered_tours%>
+    <tr>
+      <td><%=tour.name%></td>
+      <td><%=tour.start_date%></td>
+      <td><img src="public/images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo"></td>
+      <td>
+        <form action="/tours/<%= tour.id %>/delete" method="POST">
+        <input type="submit" value="Delete">
+        </form>
+      </td>
+      <td>
+        <form action="/tours/<%= tour.id %>" method="GET">
+          <input type="submit" value="Show">
+        </form>
+      </td>
+      <td>
+        <form action="/tours/<%= tour.id %>/edit" method="GET">
+          <input type="submit" value="Edit">
+        </form>
+      </td>
 
-  <form action="/tours/<%= tour.id %>" method="GET">
-    <input type="submit" value="Show">
-  </form>
+    </tr>
+  <%end%>
 
-  <form action="/tours/<%= tour.id %>/edit" method="GET">
-    <input type="submit" value="Edit">
-  </form>
-
-<%end%>
+</table>
