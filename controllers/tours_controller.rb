@@ -61,15 +61,9 @@ end
 
 #CREATE ADD MEMBER TO TOUR
 post '/tours/:id/booking' do
-  my_params = { 'tour_id' => params['tour_id'], 'member_id' => params['member_id'] }
-  new_booking = Booking.new(my_params)
-  binding.pry
-  new_booking.save
-  if new_booking['id'] =! nil
-    @reaction = "Booking successful"
-  else
-    @reaction = "Booking not possible"
-  end
+  new_booking = Booking.new(params)
+  result = new_booking.save
+  @reaction = "test"
   erb(:"/bookings/bookings_reaction")
 end
 

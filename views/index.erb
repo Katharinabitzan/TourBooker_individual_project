@@ -1,25 +1,33 @@
-<h1> This is the home </h1>
+<div class="fling-minislide">
 
-<ul>
-  <li><a href='/members/new'>Add Member</a></li>
-  <li><a href='/tours/new'>Add Tour</a></li>
-  <li><a href='/bookings/new'>New Booking</a></li>
-</ul>
+  <img src="images/hahnenkamm.jpg" alt="Slide 4" />
+  <img src="images/kaya.jpg" alt="Slide 3" />
+  <img src="images/EH7.jpg" alt="Slide 2" />
+  <img src="images/kitzsteinhorn.jpg" alt="Slide 1" />
+</div>
+
+<h1 id="welcome"> Manage your tours </h1>
+
+<div class = "big_buttons">
+  <a href='/members/new'>Add Member</a>
+  <a href='/tours/new'>Add Tour</a>
+  <a href='/bookings/new'>New Booking</a>
+</div>
 
 <h3> All upcoming tours this month </h3>
 
 <table>
   <tr>
+    <th>Photo</th>
     <th>Tour Name</th>
     <th>Start Date</th>
-    <th>Photo</th>
     <th>Actions</th>
   </tr>
   <%for tour in @upcoming_tours_next_30_days%>
     <tr>
+      <td><img src="images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo" height="42 width="42"></td>
       <td><%=tour.name%></td>
       <td><%=tour.start_date%></td>
-      <td><img src="public/images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo"></td>
       <td>
         <form action="/tours/<%= tour.id %>" method="GET">
           <input type="submit" value="Show">

@@ -32,7 +32,7 @@ class TestBooking < Minitest::Test
     @tour2 = Tour.new({
       'max_capacity' => 5,
       'duration' => 10,
-      'difficulty' => 3,
+      'difficulty' => 5,
       'start_date' => '2019-04-27',
       'location' => 'Aschau',
       'description' => 'Ride in backcountry.',

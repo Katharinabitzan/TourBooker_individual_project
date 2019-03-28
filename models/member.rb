@@ -84,10 +84,12 @@ class Member
     return results_array.count
   end
 
-#average member ability
-  def self.average_ability()
-    sql = ''
+  def is_member_booked_on_tour?(tour)
+    all_tours_booked = tours()
+    if all_tours_booked.include?(tour)
+      return true
+    else
+      return false
   end
-
-
+end
 end

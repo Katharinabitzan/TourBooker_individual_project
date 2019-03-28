@@ -93,6 +93,17 @@ class Tour
     return result.map { |member| Member.new(member)  }
   end
 
+  def members_bookable_on_tour?
+    tour = Tour.find(@id)
+    array_ability_ok = members_with_high_enough_ability()
+    for member in array_ability_ok
+      if member.is_member_booked_on_tour?(tour) == true
+        array_ability_ok.delete(member)
+      end
+    end
+    return array_ability_ok
+  end
+
  #array of tours starting in next 30 days from today
   def self.upcoming_tours_next_30_days
     all_tours = self.all

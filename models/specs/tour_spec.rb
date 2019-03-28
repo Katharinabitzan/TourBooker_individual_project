@@ -78,7 +78,11 @@ class TestTour < Minitest::Test
     current_bookings = 3
     decimal = current_bookings / @max_capacity
     percent_filled = decimal * 100
-    binding.pry
+  end
+
+  def test_members_bookable_on_tour?
+    result = @tour1.members_bookable_on_tour?
+    assert_equal(0, result)
   end
 
 end

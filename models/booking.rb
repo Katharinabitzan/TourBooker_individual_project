@@ -36,14 +36,13 @@ class Booking
         values = [@member_id, @tour_id]
         results = SqlRunner.run(sql, values)
         @id = results.first['id'].to_i
-      else
-        return nil
       end
   end
 
   def is_booking_possible?(member, tour)
     return false unless tour.current_bookings.to_i < tour.max_capacity
     return false unless tour.difficulty <= member.ability
+    return false if member.tours.include?(tour)
     return true
   end
 
