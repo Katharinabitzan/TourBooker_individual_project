@@ -10,7 +10,7 @@ class Tour
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @max_capacity = options['max_capacity'].to_i
-    @duration = options['current_spaces_booked'].to_i
+    @duration = options['duration'].to_i
     @difficulty = options['difficulty'].to_i
     @start_date = options['start_date']
     @location = options['location']
@@ -62,13 +62,8 @@ class Tour
 
 ## Extension methods ##
   def spaces_remaining
-    return @max_capacity - current_bookings()
+    return @max_capacity - current_bookings.to_i()
   end
-
-  # def increase_spaces_booked
-  #   @current_spaces_booked += 1
-  #   return @current_spaces_booked.to_i
-  # end
 
   def members
     sql = 'SELECT members.*
@@ -117,6 +112,12 @@ class Tour
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.getvalue(0,0)
+  end
+
+  def percent_filled
+    current_bookings = 3
+    percent_filled = (current_bookings / @max_capacity)* 100
+    return percent_filled
   end
 
 end

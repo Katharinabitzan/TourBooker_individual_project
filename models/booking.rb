@@ -28,21 +28,24 @@ class Booking
   end
 
   def save
-    # result = is_booking_possible?()
-    #   if result == true
-      sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
-      values = [@member_id, @tour_id]
-      results = SqlRunner.run(sql, values)
-      @id = results.first['id'].to_i
-    # end
+    member = member()
+    tour = tour()
+    result = is_booking_possible?(member,tour)
+      if result == true
+        sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
+        values = [@member_id, @tour_id]
+        results = SqlRunner.run(sql, values)
+        @id = results.first['id'].to_i
+      else
+        return "Not possible"
+      end
   end
 
-  # def is_booking_possible?(member, tour)
-  #   return false unless tour.current_spaces_booked < tour.max_capacity
-  #   return false unless tour.difficulty <= member.ability
-  #   tour.increase_spaces_booked
-  #   return "Booking successful"
-  # end
+  def is_booking_possible?(member, tour)
+    return false unless tour.current_bookings.to_i < tour.max_capacity
+    return false unless tour.difficulty <= member.ability
+    return true
+  end
 
   def delete
     sql = 'DELETE FROM bookings WHERE id = $1'
