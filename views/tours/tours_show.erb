@@ -8,7 +8,8 @@
 <p> Difficulty: <%=@tour.difficulty%> </p>
 <p> Tour Leader: <%=@tour.tour_leader%> </p>
 <p> Max capacity: <%=@tour.max_capacity%> </p>
-<p> Current Spaces Booked: <%=@tour.current_spaces_booked%> </p>
+<p> Duration: <%=@tour.duration%> </p>
+<p> Current Spaces Booked: <%=@tour.current_bookings%> </p>
 <p> Photo: <%=@tour.photo%> </p>
 
 <form action="/tours/<%= @tour.id %>/edit" method="GET">

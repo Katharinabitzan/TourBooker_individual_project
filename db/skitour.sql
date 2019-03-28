@@ -6,7 +6,7 @@ CREATE TABLE tours(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   max_capacity INT NOT NULL,
-  current_spaces_booked INT,
+  duration INT,
   difficulty INT NOT NULL,
   start_date DATE,
   location VARCHAR(255),

@@ -4,13 +4,13 @@ require( 'date')
 
 class Tour
   attr_reader :id
-  attr_accessor :name, :max_capacity, :current_spaces_booked, :difficulty, :start_date, :location, :description, :photo, :tour_leader
+  attr_accessor :name, :max_capacity, :duration, :difficulty, :start_date, :location, :description, :photo, :tour_leader
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @max_capacity = options['max_capacity'].to_i
-    @current_spaces_booked = options['current_spaces_booked'].to_i
+    @duration = options['current_spaces_booked'].to_i
     @difficulty = options['difficulty'].to_i
     @start_date = options['start_date']
     @location = options['location']
@@ -20,10 +20,10 @@ class Tour
   end
 
   def save
-    sql = 'INSERT INTO tours (name, max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader)
+    sql = 'INSERT INTO tours (name, max_capacity, duration, difficulty, start_date, location, description, photo, tour_leader)
           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id'
 
-    values = [@name, @max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader]
+    values = [@name, @max_capacity, @duration, @difficulty, @start_date, @location, @description, @photo, @tour_leader]
 
     results = SqlRunner.run(sql, values)
     @id = results.first['id'].to_i
@@ -36,8 +36,8 @@ class Tour
   end
 
   def update
-    sql = 'UPDATE tours SET (name, max_capacity, current_spaces_booked, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10'
-    values = [@name, @max_capacity, @current_spaces_booked, @difficulty, @start_date, @location, @description, @photo, @tour_leader, @id]
+    sql = 'UPDATE tours SET (name, max_capacity, duration, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10'
+    values = [@name, @max_capacity, @duration, @difficulty, @start_date, @location, @description, @photo, @tour_leader, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -62,13 +62,13 @@ class Tour
 
 ## Extension methods ##
   def spaces_remaining
-    return @max_capacity - @current_spaces_booked
+    return @max_capacity - current_bookings()
   end
 
-  def increase_spaces_booked
-    @current_spaces_booked += 1
-    return @current_spaces_booked.to_i
-  end
+  # def increase_spaces_booked
+  #   @current_spaces_booked += 1
+  #   return @current_spaces_booked.to_i
+  # end
 
   def members
     sql = 'SELECT members.*

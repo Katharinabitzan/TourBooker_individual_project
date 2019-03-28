@@ -21,7 +21,7 @@ class TestBooking < Minitest::Test
         })
     @tour1 = Tour.new({
       'max_capacity' => 5,
-      'current_spaces_booked' => 0,
+      'duration' => 5,
       'difficulty' => 1,
       'start_date' => '2019-03-25',
       'location' => 'Hahnenkamm',
@@ -31,7 +31,7 @@ class TestBooking < Minitest::Test
       })
     @tour2 = Tour.new({
       'max_capacity' => 5,
-      'current_spaces_booked' => 0,
+      'duration' => 10,
       'difficulty' => 3,
       'start_date' => '2019-04-27',
       'location' => 'Aschau',
