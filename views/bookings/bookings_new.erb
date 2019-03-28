@@ -2,28 +2,28 @@
 
 <form method="POST" action="/bookings">
 
-  <p>
-    <label>
-      Select a tour:
-      <select name="tour_id">
-        <% for tour in @tours %>
-        <option value="<%= tour.id %>"><%= tour.id%></option>
-        <%end%>
-      </select>
-    </label>
-  </p>
-
-  <p>
-    <label>
-      Select a member:
-      <select name="member_id">
-        <% for member in @members %>
-        <option value="<%= member.id %>"><%= member.name%></option>
-        <%end%>
-      </select>
-    </label>
-  </p>
-
+  <ul class= "flex-outer">
+    <li>
+      <label>
+        Select a tour:
+        <select name="tour_id">
+          <% for tour in @tours %>
+          <option value="<%= tour.id %>"><%= tour.id%></option>
+          <%end%>
+        </select>
+      </label>
+    </li>
+    <li>
+      <label>
+        Select a member:
+        <select name="member_id">
+          <% for member in @members %>
+          <option value="<%= member.id %>"><%= member.name%></option>
+          <%end%>
+        </select>
+      </label>
+    </li>
+  </ul>
 
 
     <input type='submit' value="Make new booking">
