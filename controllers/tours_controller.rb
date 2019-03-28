@@ -61,9 +61,15 @@ end
 
 #CREATE ADD MEMBER TO TOUR
 post '/tours/:id/booking' do
-  new_booking = Booking.new(params)
-  result = new_booking.save
-  @reaction = result
+  number_bookings = Booking.all.count.to_i
+  Booking.new(params).save
+  updated_bookings = Booking.all.count.to_i
+
+  if updated_bookings == number_bookings
+    @reaction = "Booking is not possible. The maximum capacity has already been reached."
+  else
+    @reaction = "Booking successful."
+  end
   erb(:"/bookings/bookings_reaction")
 end
 

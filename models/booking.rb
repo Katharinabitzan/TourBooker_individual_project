@@ -35,11 +35,7 @@ class Booking
       values = [@member_id, @tour_id]
       results = SqlRunner.run(sql, values)
       @id = results.first['id'].to_i
-      return @id
-    else
-      return "fail"
     end
-
   end
 
   # def save
