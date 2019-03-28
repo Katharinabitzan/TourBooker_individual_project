@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-# require( 'pry-byebug' )
+require( 'pry-byebug' )
 require_relative( '../models/member.rb' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/booking.rb' )
@@ -10,8 +10,6 @@ also_reload( '../models/*' )
 get '/members' do
   @members = Member.all()
   @members_number = Member.count_all_members
-  @active_members = Member.count_all_active_members
-  # @average_ability = Member.average_ability
   erb(:"members/members_index")
 end
 
@@ -54,5 +52,15 @@ post '/members/:id/delete' do
   redirect to '/members'
 end
 
-# binding.pry
+#INDEX BY ABILITY
+# get '/members/ability' do
+#     binding.pry
+#   @abilities = [1, 2, 3, 4, 5]
+#   chosen_ability = params['ability']
+#   @members = Member.all_by_ability(chosen_ability)
+#
+#   erb(:"members/ability")
+# end
+
+
 # nil

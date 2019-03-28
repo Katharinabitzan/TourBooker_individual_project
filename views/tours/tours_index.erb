@@ -5,6 +5,7 @@
     <th>Tour Name</th>
     <th>Photo</th>
     <th>Start Date</th>
+    <th>Max capacity</th>
     <th>Current spaces booked</th>
     <th>Actions</th>
   </tr>
@@ -15,6 +16,7 @@
         <img src="public/images/hahnenkamm.jpg" alt="<%=tour.name%> photo">
       </td>
       <td><%=tour.start_date%></td>
+      <td><%=tour.max_capacity%></td>
       <td><%=tour.current_bookings%></td>
       <td>
         <form action="/tours/<%= tour.id %>/delete" method="POST">

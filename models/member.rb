@@ -90,6 +90,16 @@ class Member
       return true
     else
       return false
+    end
   end
-end
+
+  def self.all_by_ability(ability)
+    sql = 'SELECT * FROM members
+          WHERE members.ability = $1'
+    values = [ability]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member)  }
+  end
+
+
 end

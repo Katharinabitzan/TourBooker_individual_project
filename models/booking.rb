@@ -30,21 +30,36 @@ class Booking
   def save
     member = member()
     tour = tour()
-    result = is_booking_possible?(member,tour)
-      if result == true
-        sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
-        values = [@member_id, @tour_id]
-        results = SqlRunner.run(sql, values)
-        @id = results.first['id'].to_i
-      end
+    if tour.spaces_remaining > 0 && tour.difficulty <= member.ability
+      sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
+      values = [@member_id, @tour_id]
+      results = SqlRunner.run(sql, values)
+      @id = results.first['id'].to_i
+      return @id
+    else
+      return "fail"
+    end
+
   end
 
-  def is_booking_possible?(member, tour)
-    return false unless tour.current_bookings.to_i < tour.max_capacity
-    return false unless tour.difficulty <= member.ability
-    return false if member.tours.include?(tour)
-    return true
-  end
+  # def save
+  #   member = member()
+  #   tour = tour()
+  #   result = is_booking_possible?(member,tour)
+  #     if result == true
+  #       sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
+  #       values = [@member_id, @tour_id]
+  #       results = SqlRunner.run(sql, values)
+  #       @id = results.first['id'].to_i
+  #     end
+  # end
+  #
+  # def is_booking_possible?(member, tour)
+  #   return false unless tour.current_bookings.to_i < tour.max_capacity
+  #   return false unless tour.difficulty <= member.ability
+  #   return false if member.tours.include?(tour)
+  #   return true
+  # end
 
   def delete
     sql = 'DELETE FROM bookings WHERE id = $1'

@@ -1,13 +1,13 @@
-<h1> Add member to tour </h1>
+<h1> Book a member to <%= @tour.name %> </h1>
 
-<p> <%= @tour.name %> </p>
+<p> <%= @tour.name %> requires a member ability level of <%= @tour.difficulty %> for members to partake. </p>
 
 
-<!--Shows only names that have higih enough ability-->
+<!--Shows only names that have high enough ability-->
 <form method="POST" action="/tours/<%= @tour.id %>/booking">
   <p>
     <label>
-      Select a member to add to the tour:
+      The following members are qualified for the tour:
       <select name="member_id">
         <% for member in @potential_members %>
           <option value="<%= member.id %>"><%= member.name%></option>

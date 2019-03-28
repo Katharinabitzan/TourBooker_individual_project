@@ -63,7 +63,7 @@ end
 post '/tours/:id/booking' do
   new_booking = Booking.new(params)
   result = new_booking.save
-  @reaction = "test"
+  @reaction = result
   erb(:"/bookings/bookings_reaction")
 end
 

@@ -1,7 +1,6 @@
 
-<h2>Details</h2>
+<h2>Details for <%=@tour.name%></h2>
 
-<p> Name: <%=@tour.name%> </p>
 <p> Start Date: <%=@tour.start_date%> </p>
 <p> Description: <%=@tour.description%> </p>
 <p> Location: <%=@tour.location%> </p>
@@ -21,10 +20,13 @@
   <input type="submit" value="Delete">
 </form>
 
+
+
+
 <p>All members booked on this tour:</p>
 
 <%for member in @members%>
-<p><%=member.name%></p>
+  <p><%=member.name%></p>
 <%end%>
 
 <a href="/tours/<%= @tour.id %>/booking">Add member to tour</a>
