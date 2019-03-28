@@ -4,6 +4,7 @@
   <tr>
     <th>Tour Name</th>
     <th>Start Date</th>
+    <th>Current spaces booked</th>
     <th>Photo</th>
     <th>Actions</th>
   </tr>
@@ -11,6 +12,7 @@
     <tr>
       <td><%=tour.name%></td>
       <td><%=tour.start_date%></td>
+      <td><%=tour.current_bookings%></td>
       <td><img src="public/images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo"></td>
       <td>
         <form action="/tours/<%= tour.id %>/delete" method="POST">

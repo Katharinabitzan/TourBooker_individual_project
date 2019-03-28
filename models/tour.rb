@@ -87,7 +87,7 @@ class Tour
     return results.map { |tour| Tour.new(tour) }
   end
 
-  
+
   def members_with_high_enough_ability
     sql = 'SELECT members.*
           FROM members, tours
@@ -110,6 +110,13 @@ class Tour
       end
     end
     return tours_next_30_days
+  end
+
+  def current_bookings
+    sql = 'SELECT COUNT(*) FROM bookings WHERE tour_id = $1'
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.getvalue(0,0)
   end
 
 end

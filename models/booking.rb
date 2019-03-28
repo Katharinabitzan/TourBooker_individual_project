@@ -28,20 +28,21 @@ class Booking
   end
 
   def save
-    result = is_booking_possible?()
-      if result == true
+    # result = is_booking_possible?()
+    #   if result == true
       sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
       values = [@member_id, @tour_id]
       results = SqlRunner.run(sql, values)
       @id = results.first['id'].to_i
+    # end
   end
 
-  def is_booking_possible?(member, tour)
-    return false unless tour.current_spaces_booked < tour.max_capacity
-    return false unless tour.difficulty <= member.ability
-    tour.increase_spaces_booked
-    return "Booking successful"
-  end
+  # def is_booking_possible?(member, tour)
+  #   return false unless tour.current_spaces_booked < tour.max_capacity
+  #   return false unless tour.difficulty <= member.ability
+  #   tour.increase_spaces_booked
+  #   return "Booking successful"
+  # end
 
   def delete
     sql = 'DELETE FROM bookings WHERE id = $1'
@@ -72,13 +73,6 @@ class Booking
   def self.delete_all
     sql = 'DELETE FROM bookings'
     SqlRunner.run(sql)
-  end
-
-  def current_spaces_booked
-    sql = 'SELECT COUNT(*) FROM bookings WHERE tour_id = $1'
-    values = [@id]
-    result = SqlRunner.run(sql, values)
-    return result
   end
 
 end
