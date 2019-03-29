@@ -1,12 +1,16 @@
 <div class="fling-minislide">
 
+  <img src="images/sweden.jpg" alt="Slide 9" />
+  <img src="images/rugova.jpg" alt="Slide 8" />
+  <img src="images/naria.jpg" alt="Slide 7" />
+  <img src="images/kirchberg.jpg" alt="Slide 6" />
+  <img src="images/rugova.jpg" alt="Slide 5" />
   <img src="images/hahnenkamm.jpg" alt="Slide 4" />
   <img src="images/kaya.jpg" alt="Slide 3" />
   <img src="images/EH7.jpg" alt="Slide 2" />
   <img src="images/kitzsteinhorn.jpg" alt="Slide 1" />
 </div>
-
-<h1 id="welcome"> Manage your tours </h1>
+<p>  </p>
 
 <div class = "big_buttons">
   <a href='/members/new'>Add Member</a>
@@ -25,8 +29,8 @@
   </tr>
   <%for tour in @upcoming_tours_next_30_days%>
     <tr>
-      <td><img src="images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo" height="42 width="42"></td>
-      <td><%=tour.name%></td>
+      <td><img src="images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo" height="75 width="75"></td>
+      <td><%=tour.name.capitalize%></td>
       <td><%=tour.start_date%></td>
       <td>
         <form action="/tours/<%= tour.id %>" method="GET">

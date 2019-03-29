@@ -8,7 +8,7 @@
         Select a tour:
         <select name="tour_id">
           <% for tour in @tours %>
-          <option value="<%= tour.id %>"><%= tour.id%></option>
+          <option value="<%= tour.id %>"><%= tour.name%></option>
           <%end%>
         </select>
       </label>
