@@ -126,7 +126,7 @@ class Tour
   end
 
   def percent_filled
-    current_bookings = 3
+    current_bookings = @current_bookings
     percent_filled = (current_bookings / @max_capacity)* 100
     return percent_filled
   end

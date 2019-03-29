@@ -4,6 +4,9 @@ body {
   font-family: "trebuchet MS";
 }
 
+ul {
+  list-style-type: none;
+}
 /* NAVIGATION BAR */
 nav {
   display: flex;
@@ -89,14 +92,17 @@ nav a.active {
 table {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 }
+
 th, td {
   padding: 5px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+    word-wrap:break-word;
 }
 th {
-  background-color: blue;
+  background-color: grey;
   color: white;
 }
 
@@ -108,12 +114,16 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+.right
+text-align: right;
 /* FORMS */
 
 .flex-outer li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  list-style-type: none;
+
 }
 
 .flex-outer > li > label,

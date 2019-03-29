@@ -10,7 +10,7 @@
   <%for booking in @bookings%>
     <tr>
       <td><%=booking.id%></td>
-      <td><%=booking.tour.name%></td>
+      <td><%=booking.tour.name.capitalize%></td>
       <td><%=booking.member.name%></td>
       <td>
         <form action="/bookings/<%= booking.id %>/delete" method="POST">

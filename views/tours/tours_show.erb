@@ -1,29 +1,59 @@
 
-<h2>Details for <%=@tour.name%></h2>
+<h2>Details for Tour: <%=@tour.name.capitalize%></h2>
 
-<p> Start Date: <%=@tour.start_date%> </p>
-<p> Description: <%=@tour.description%> </p>
-<p> Location: <%=@tour.location%> </p>
-<p> Difficulty: <%=@tour.difficulty%> </p>
-<p> Tour Leader: <%=@tour.tour_leader%> </p>
-<p> Max capacity: <%=@tour.max_capacity%> </p>
-<p> Duration: <%=@tour.duration%> </p>
-<p> Current Spaces Booked: <%=@tour.current_bookings%> </p>
-<p> Photo: <%=@tour.photo%> </p>
-<p> percent_filled: <%=@tour.percent_filled%> </p>
+<table class = "fixed">
+    <col width="20px" />
+    <col width="30px" />
 
-<form action="/tours/<%= @tour.id %>/edit" method="GET">
-  <input type="submit" value="Edit">
-</form>
+    <tr>
+      <td>Description: <%=@tour.description%> </td>
+      <td><img src="/images/<%=@tour.photo%>.jpg" alt="<%=@tour.name%> photo" height="75 width="100"></td>
+    </tr>
 
-<form action="/tours/<%= @tour.id %>/delete" method="POST">
-  <input type="submit" value="Delete">
-</form>
+    <tr>
+      <td align = "right">Start date:</td>
+      <td><%=@tour.start_date%></td>
+    <tr>
+      <td align = "right">Location:</td>
+      <td><%=@tour.location%></td>
+    </tr>
+
+    <tr>
+      <td align = "right">Difficulty:</td>
+      <td><%=@tour.difficulty%></td>
+    </tr>
+    <tr>
+      <td align = "right">Duration:</td>
+      <td><%=@tour.duration%> days</td>
+    </tr>
+    <tr>
+      <td align = "right">Max capacity:</td>
+      <td><%=@tour.max_capacity%></td>
+    </tr>
+    <tr>
+      <td align = "right">Current spaces booked: </td>
+      <td><%=@tour.current_bookings%></td>
+    </tr>
+    <tr>
+      <td align = "right">Tour leader: </td>
+      <td><%=@tour.tour_leader%></td>
+    </tr>
+    <tr>
+      <td>
+        <form action="/tours/<%= @tour.id %>/delete" method="POST">
+          <input type="submit" value="Delete">  </form>
+      </td>
+      <td>
+      <form action="/tours/<%= @tour.id %>/edit" method="GET">
+        <input type="submit" value="Edit">
+      </form>
+      </td>
+    </tr>
+
+</table>
 
 
-
-
-<p>All members booked on this tour:</p>
+<h3>All members booked on this tour:</h3>
 
 <%for member in @members%>
   <p><%=member.name%></p>

@@ -57,6 +57,7 @@ class Member
     SqlRunner.run(sql)
   end
 
+# Not used
   def book_tour(tour)
     return unless tour.spaces_remaining > 0
     return unless ability_high_enough?(tour)
@@ -93,6 +94,7 @@ class Member
     end
   end
 
+#Return array of members for a certain ability
   def self.all_by_ability(ability)
     sql = 'SELECT * FROM members
           WHERE members.ability = $1'
@@ -101,5 +103,12 @@ class Member
     return results.map { |member| Member.new(member)  }
   end
 
+#Return availability
+def unavailable_dates
+  array_of_tours = tours()
+  start_dates = array_of_tours.map { |tour| tour.start_date  }
+  end_dates = array_of_tours.map { |tour| tour.start_date + tour.duration.to_i  }
+  return end_dates
+end
 
 end

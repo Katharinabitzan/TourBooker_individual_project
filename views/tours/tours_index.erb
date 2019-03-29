@@ -2,19 +2,21 @@
 
 <table>
   <tr>
-    <th>Tour Name</th>
     <th>Photo</th>
+    <th>Tour Name</th>
     <th>Start Date</th>
     <th>Max capacity</th>
     <th>Current spaces booked</th>
-    <th>Actions</th>
+    <th> </th>
+    <th> </th>
+    <th> </th>
   </tr>
   <%for tour in @ordered_tours%>
     <tr>
-      <td><%=tour.name%></td>
       <td>
-        <img src="public/images/hahnenkamm.jpg" alt="<%=tour.name%> photo">
+        <img src="images/<%=tour.name%>.jpg" alt="<%=tour.name%> photo" height="75 width="100">
       </td>
+      <td><%=tour.name.capitalize%></td>
       <td><%=tour.start_date%></td>
       <td><%=tour.max_capacity%></td>
       <td><%=tour.current_bookings%></td>

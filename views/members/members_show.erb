@@ -19,14 +19,13 @@
       <th>Start Date</th>
       <th>Tour Name</th>
       <th>Difficulty</th>
-      <th>Actions</th>
     </tr>
   <%for tour in @tours%>
     <tr>
       <td><%=tour.start_date%></td>
-      <td><%=tour.name%></td>
+      <td><%=tour.name.capitalize%></td>
       <td><%=tour.difficulty%></td>
-      <td>Edit</td>
+
     </tr>
   <%end%>
   </table>

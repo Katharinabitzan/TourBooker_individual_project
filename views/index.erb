@@ -15,16 +15,17 @@
 <div class = "big_buttons">
   <a href='/members/new'>Add Member</a>
   <a href='/tours/new'>Add Tour</a>
-  <a href='/bookings/new'>New Booking</a>
+  <!-- <a href='/bookings/new'>New Booking</a> -->
 </div>
 
-<h3> All upcoming tours this month </h3>
+<h3> All upcoming tours in the next 30 days: </h3>
 
 <table>
   <tr>
     <th>Photo</th>
     <th>Tour Name</th>
     <th>Start Date</th>
+    <th>Bookings</th>
     <th>Actions</th>
   </tr>
   <%for tour in @upcoming_tours_next_30_days%>
@@ -32,20 +33,14 @@
       <td><img src="images/<%=tour.photo%>.jpg" alt="<%=tour.name%> photo" height="75 width="75"></td>
       <td><%=tour.name.capitalize%></td>
       <td><%=tour.start_date%></td>
+      <td><%=tour.current_bookings%> / <%=tour.max_capacity%></td>
       <td>
         <form action="/tours/<%= tour.id %>" method="GET">
           <input type="submit" value="Show">
         </form>
-      </td>
-      <td>
-        <p> Capacity </P>
-
       </td>
 
     </tr>
   <%end%>
 
 </table>
-
-
-<p> Show tours this month with bar to represent capacity </p>

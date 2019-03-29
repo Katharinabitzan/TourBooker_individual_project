@@ -29,6 +29,8 @@ end
 get '/members/:id' do
    @member = Member.find(params['id'].to_i)
    @tours = @member.tours
+   # dated_tours = @tours.map { |tour| tour.start_date  }
+   # @member.unavailable_dates
    erb(:"members/members_show")
 end
 

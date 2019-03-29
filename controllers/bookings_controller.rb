@@ -23,7 +23,6 @@ end
 #CREATE
 post '/bookings' do
   result = Booking.new(params).save
-  binding.pry
   if result =! nil
     @reaction = "Booking successful"
   else
