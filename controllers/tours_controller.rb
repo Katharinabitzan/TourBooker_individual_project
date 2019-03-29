@@ -61,6 +61,7 @@ end
 
 #CREATE ADD MEMBER TO TOUR
 post '/tours/:id/booking' do
+  @tour = Tour.find(params['id'])
   number_bookings = Booking.all.count.to_i
   Booking.new(params).save
   updated_bookings = Booking.all.count.to_i

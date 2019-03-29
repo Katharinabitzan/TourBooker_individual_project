@@ -1,6 +1,7 @@
 body {
   background-color: #cbd2d5;
   margin: 2em;
+  font-family: "trebuchet MS";
 }
 
 /* NAVIGATION BAR */
@@ -75,6 +76,8 @@ nav a.active {
   float: center;
   display: inline-flex;
   justify-content: space-around;
+  font-family: "trebuchet MS";
+  font-weight: bold;
 }
 
 .big_buttons a:hover {
