@@ -19,8 +19,30 @@
 
 # INSTRUCTIONS FOR RUNNING APP
 
+Running the website locally: <br/>
+STEP 1: Clone the repository. To your local device. <br/>
+
+STEP 2: Navigate to the ruby_project folder in your terminal. <br/>
+
+STEP 3: Create a local database: <br/>
+`createdb skitour` <br/>
+
+STEP 4: Set up your tables in the local database: <br/>
+`psql -d skitour -f db/skitour.sql` <br/>
+!!! (to quit pry) <br/>
+
+STEP 5: Seed the initial database: <br/>
+`ruby db/seeds.rb` <br/>
+
+STEP 6: Run the app: <br/>
+`ruby app.rb` <br/>
+
+STEP 7: In the browser, navigate to the following link to run the app: <br/>
+
+http://localhost:4567/ <br/>
 
 # SCREENSHOTS
+
 
 
 # PLANNING
