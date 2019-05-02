@@ -47,7 +47,11 @@ http://localhost:4567/ <br/>
 
 # SCREENSHOTS
 
-
+![Screenshot landing page](public/images/screenshots/screenshot_landing_page.png)
+![Screenshot all members](public/images/screenshots/screenshot_all_members.png)
+![Screenshot all tours](public/images/screenshots/screenshot_all_tours.png)
+![Screenshot show tour](public/images/screenshots/screenshot_show_tour.png)
+![Screenshot all bookings](public/images/screenshots/screenshot_all_bookings.png)
 
 # BRIEF
 
