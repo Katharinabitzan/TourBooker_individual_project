@@ -73,16 +73,17 @@ class TestTour < Minitest::Test
     assert_equal(5, result)
   end
 
+  def
 
-  def test_percent_filled
-    current_bookings = 3
-    decimal = current_bookings / @max_capacity
-    percent_filled = decimal * 100
-  end
+  # def test_percent_filled
+  #   current_bookings = 3
+  #   decimal = current_bookings / @max_capacity
+  #   percent_filled = decimal * 100
+  # end
 
-  def test_members_bookable_on_tour?
-    result = @tour1.members_bookable_on_tour?
-    assert_equal(0, result)
-  end
+  # def test_members_bookable_on_tour?
+  #   result = @tour1.members_bookable_on_tour?
+  #   assert_equal(0, result)
+  # end
 
 end

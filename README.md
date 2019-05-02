@@ -1,5 +1,11 @@
 <<<<<<< HEAD
-0.1.4 Add index and new bookings function. View all bookings.
+1.0.3 CSS added
+1.0.2 Add ability constraint. Only list members to add to tour if ability high enough.
+1.0.1 Add max capacity function. Only allow members to be addd to tour if there is space remaining. <br/>
+
+1.0.0 MVP achieved. Working app. <br/>
+0.1.5 List all tours in next 30 days on homepage.  <br/>
+0.1.4 Add index and new bookings function. View all bookings. <br/>
 0.1.3 List all members booked on a tour in tour.show <br/>
 0.1.2 List all tours a member is registered for (tour id) <br/>
 0.1.1 Finish RESTful routes for tours <br/>
@@ -11,15 +17,20 @@
 0.0.1: Add Booking class, pass test of existance of variables. <br/>
 0.0.0: Add Tour and Member class, pass test for existance of variables. <br/>
 
+# INSTRUCTIONS FOR RUNNING APP
+
+
+# SCREENSHOTS
+
+
+# PLANNING
+
+
 # BRIEF
 
 # Gym
 
 A local gym has asked you to build a piece of software to help them to manage memberships, and register members for classes.
-
-#### Inspired By
-
-[Glofox](https://www.glofox.com/club-solution/), [Pike13](https://www.pike13.com/pike13-scheduling-software-demo)
 
 ## MVP
 

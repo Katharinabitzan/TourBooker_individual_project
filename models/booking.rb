@@ -30,7 +30,9 @@ class Booking
   def save
     member = member()
     tour = tour()
+    # check to see if: tour has enough spaces remaining & member ability is high enough
     if tour.spaces_remaining > 0 && tour.difficulty <= member.ability
+      # if yes
       sql = 'INSERT INTO bookings (member_id, tour_id) VALUES ($1, $2) RETURNING id'
       values = [@member_id, @tour_id]
       results = SqlRunner.run(sql, values)
@@ -50,12 +52,12 @@ class Booking
   #     end
   # end
   #
-  # def is_booking_possible?(member, tour)
-  #   return false unless tour.current_bookings.to_i < tour.max_capacity
-  #   return false unless tour.difficulty <= member.ability
-  #   return false if member.tours.include?(tour)
-  #   return true
-  # end
+  def is_booking_possible?(member, tour)
+    return false unless tour.current_bookings.to_i < tour.max_capacity
+    return false unless tour.difficulty <= member.ability
+    return false if member.tours.include?(tour)
+    return true
+  end
 
   def delete
     sql = 'DELETE FROM bookings WHERE id = $1'

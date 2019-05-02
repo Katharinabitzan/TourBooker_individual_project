@@ -30,13 +30,16 @@ class Tour
   end
 
   def delete
-    sql = 'DELETE FROM tours WHERE id = $1'
+    sql = 'DELETE FROM tours
+          WHERE id = $1'
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def update
-    sql = 'UPDATE tours SET (name, max_capacity, duration, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10'
+    sql = 'UPDATE tours
+          SET (name, max_capacity, duration, difficulty, start_date, location, description, photo, tour_leader) = ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+          WHERE id = $10'
     values = [@name, @max_capacity, @duration, @difficulty, @start_date, @location, @description, @photo, @tour_leader, @id]
     SqlRunner.run(sql, values)
   end
@@ -104,6 +107,7 @@ class Tour
     return array_ability_ok
   end
 
+#tour.rb
  #array of tours starting in next 30 days from today
   def self.upcoming_tours_next_30_days
     all_tours = self.all
