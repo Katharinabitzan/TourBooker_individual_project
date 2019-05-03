@@ -75,6 +75,13 @@ A local gym has asked you to build a piece of software to help them to manage me
 
 # PLANNING
 
-![Screenshot landing page](public/images/screenshots/screenshot_planning1.png)
-![Screenshot all members](public/images/screenshots/screenshot_planning2.png)
-![Screenshot all tours](public/images/screenshots/screenshot_planning3.png)
+![Screenshot planning1](public/images/screenshots/screenshot_planning1.png)
+![Screenshot planning2](public/images/screenshots/screenshot_planning2.png)
+![Screenshot planning3](public/images/screenshots/screenshot_planning3.png)
+
+# CODING IRL
+
+![Screenshot coding1](public/images/screenshots/screenshot_coding1.jpg)
+![Screenshot coding2](public/images/screenshots/screenshot_coding2.jpg)
+![Screenshot coding3](public/images/screenshots/screenshot_coding3.jpg)
+![Screenshot coding4](public/images/screenshots/screenshot_coding4.jpg)
