@@ -1,3 +1,7 @@
+# SUMMARY
+
+This project was an individual project done over one week. Based on a project brief (below) the instructions were to build an app to fit that brief using only Ruby, Sinatra, HTML and CSS. The project concluded with a 10 minute presentation at the end.
+
 # VERSIONS
 
 2.0.0 New changes to app <br/>
@@ -19,8 +23,8 @@
 0.0.4 Create index for members <br/>
 0.0.3 Add functions to find tours by members, members by tours, bookings for both. <br/>
 0.0.2: Add CRUD (Create, Read: Find-all & Find-by-id, Update, Delete & Delete-all) functions for Tour, Member and Booking classes <br/>
-0.0.1: Add Booking class, pass test of existance of variables. <br/>
-0.0.0: Add Tour and Member class, pass test for existance of variables. <br/>
+0.0.1: Add Booking class, pass test of existence of variables. <br/>
+0.0.0: Add Tour and Member class, pass test for existence of variables. <br/>
 
 # INSTRUCTIONS FOR RUNNING APP
 
@@ -70,3 +74,7 @@ A local gym has asked you to build a piece of software to help them to manage me
 - The gym could be able to give its members Premium or Standard membership. Standard members can only be signed up for classes during off-peak hours.
 
 # PLANNING
+
+![Screenshot landing page](public/images/screenshots/screenshot_planning1.png)
+![Screenshot all members](public/images/screenshots/screenshot_planning2.png)
+![Screenshot all tours](public/images/screenshots/screenshot_planning3.png)
