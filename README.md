@@ -81,7 +81,7 @@ A local gym has asked you to build a piece of software to help them to manage me
 
 # CODING IRL
 
-![Screenshot coding1](public/images/screenshots/screenshot_coding1.jpg)
-![Screenshot coding2](public/images/screenshots/screenshot_coding2.jpg)
-![Screenshot coding3](public/images/screenshots/screenshot_coding3.jpg)
-![Screenshot coding4](public/images/screenshots/screenshot_coding4.jpg)
+![Screenshot coding1](public/images/screenshots/screenshot_coding1.JPG)
+![Screenshot coding2](public/images/screenshots/screenshot_coding2.JPG)
+![Screenshot coding3](public/images/screenshots/screenshot_coding3.JPG)
+![Screenshot coding4](public/images/screenshots/screenshot_coding4.JPG)
