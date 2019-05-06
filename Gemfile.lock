@@ -1,7 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    backports (3.14.0)
     date (2.0.0)
+    minitest (5.11.3)
+    minitest-rg (5.2.0)
+      minitest (~> 5.0)
+    multi_json (1.13.1)
     mustermann (1.0.3)
     pg (1.1.4)
     rack (2.0.7)
@@ -12,6 +17,13 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    sinatra-contrib (2.0.5)
+      backports (>= 2.8.2)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.0.5)
+      sinatra (= 2.0.5)
+      tilt (>= 1.3, < 3)
     tilt (2.0.9)
 
 PLATFORMS
@@ -19,8 +31,11 @@ PLATFORMS
 
 DEPENDENCIES
   date
+  minitest
+  minitest-rg
   pg
   sinatra
+  sinatra-contrib
 
 RUBY VERSION
    ruby 2.4.1p111
