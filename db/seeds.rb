@@ -1,7 +1,7 @@
 require_relative('../models/tour.rb')
 require_relative('../models/member.rb')
 require_relative('../models/booking.rb')
-require('pry-byebug')
+# require('pry-byebug')
 
 Booking.delete_all
 Tour.delete_all
@@ -142,5 +142,5 @@ booking3 = Booking.new({
 # booking2.save
 # booking3.save
 
-binding.pry
+# binding.pry
 nil

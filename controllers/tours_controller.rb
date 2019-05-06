@@ -1,6 +1,6 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' )
-require( 'pry-byebug' )
+require( 'sinatra/contrib/all' ) if development?
+# require( 'pry-byebug' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/member.rb' )
 require_relative( '../models/booking.rb' )

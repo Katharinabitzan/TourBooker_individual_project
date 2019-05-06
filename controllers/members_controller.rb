@@ -1,6 +1,6 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' )
-require( 'pry-byebug' )
+require( 'sinatra/contrib/all' ) if development?
+# require( 'pry-byebug' )
 require_relative( '../models/member.rb' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/booking.rb' )
@@ -56,7 +56,6 @@ end
 
 #INDEX BY ABILITY
 # get '/members/ability' do
-#     binding.pry
 #   @abilities = [1, 2, 3, 4, 5]
 #   chosen_ability = params['ability']
 #   @members = Member.all_by_ability(chosen_ability)

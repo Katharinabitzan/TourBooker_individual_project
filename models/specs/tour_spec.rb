@@ -1,6 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
-require( 'pry-byebug' )
+# require( 'pry-byebug' )
 require_relative('../member.rb')
 require_relative('../booking.rb')
 require_relative('../tour.rb')
