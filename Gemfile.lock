@@ -3,9 +3,6 @@ GEM
   specs:
     backports (3.14.0)
     date (2.0.0)
-    minitest (5.11.3)
-    minitest-rg (5.2.0)
-      minitest (~> 5.0)
     multi_json (1.13.1)
     mustermann (1.0.3)
     pg (1.1.4)
@@ -31,8 +28,6 @@ PLATFORMS
 
 DEPENDENCIES
   date
-  minitest
-  minitest-rg
   pg
   sinatra
   sinatra-contrib
