@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner.rb')
-require( 'pry-byebug' )
+# require( 'pry-byebug' )
 require( 'date')
 
 class Tour
