@@ -4,7 +4,7 @@ require( 'sinatra/contrib/all' ) if development?
 require_relative( '../models/member.rb' )
 require_relative( '../models/tour.rb' )
 require_relative( '../models/booking.rb' )
-also_reload( '../models/*' )
+# also_reload( '../models/*' )
 
 #INDEX
 get '/members' do
