@@ -79,9 +79,9 @@ A local gym has asked you to build a piece of software to help them to manage me
 ![Screenshot planning2](public/images/screenshots/screenshot_planning2.png)
 ![Screenshot planning3](public/images/screenshots/screenshot_planning3.png)
 
-# CODING IRL
+<!-- # CODING IRL -->
 
-![Screenshot coding1](public/images/screenshots/screenshot_coding1.JPG)
+<!-- ![Screenshot coding1](public/images/screenshots/screenshot_coding1.JPG)
 ![Screenshot coding2](public/images/screenshots/screenshot_coding2.JPG)
 ![Screenshot coding3](public/images/screenshots/screenshot_coding3.JPG)
-![Screenshot coding4](public/images/screenshots/screenshot_coding4.JPG)
+![Screenshot coding4](public/images/screenshots/screenshot_coding4.JPG) -->
