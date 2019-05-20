@@ -2,6 +2,9 @@
 
 This project was an individual project done over one week. Based on a project brief (below) the instructions were to build an app to fit that brief using only Ruby, Sinatra, HTML and CSS. The project concluded with a 10 minute presentation at the end.
 
+View app on Heroku:
+https://tourtastic.herokuapp.com/
+
 # VERSIONS
 
 2.0.0 New changes to app <br/>
@@ -26,7 +29,7 @@ This project was an individual project done over one week. Based on a project br
 0.0.1: Add Booking class, pass test of existence of variables. <br/>
 0.0.0: Add Tour and Member class, pass test for existence of variables. <br/>
 
-# INSTRUCTIONS FOR RUNNING APP
+# INSTRUCTIONS FOR RUNNING APP LOCALLY
 
 Running the website locally: <br/>
 Clone the repository. To your local device. <br/>
