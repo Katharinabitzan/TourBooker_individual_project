@@ -7,7 +7,8 @@ class SqlRunner
       # db = PG.connect({ dbname: 'skitour', host: 'localhost' })
       db = PG.connect({dbname: ENV['DBNAME'],
               host: ENV['HOST'],
-              port: ENV['PORT'],
+              # port: ENV['PORT'],
+              port: '5432',
               user: ENV['USER'],
               password: ENV['PASSWORD']})
 
